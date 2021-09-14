@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
+import CardArtist from '../components/CardArtist';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class Search extends React.Component {
       name: '',
       loading: false,
       searchResult: [],
+      nameImput: '',
     };
   }
 
@@ -24,12 +26,12 @@ export default class Search extends React.Component {
     });
     const artists = await searchAlbumsAPI(name);
     this.setState({
+      name: '',
       searchResult: artists,
       loading: false,
       nameImput: name,
     });
     target.value = '';
-    console.log(artists);
   }
 
   buttonDisable = () => {
@@ -64,11 +66,18 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const { loading, nameImput } = this.state;
+    const { loading, searchResult, nameImput } = this.state;
     return (
       <div data-testid="page-search">
         <Header />
         { loading ? <Loading /> : this.searchArtist() }
+        { nameImput && searchResult.length !== 0
+          ? <p>{`Resultado de álbuns de: ${nameImput}`}</p>
+          : <p>Nenhum álbum foi encontrado</p> }
+        { searchResult.map((element) => (<CardArtist
+          key={ element.artistId }
+          searchResult={ element }
+        />))}
       </div>
     );
   }
