@@ -2,6 +2,9 @@ import React from 'react';
 
 export default class ProfileEdit extends React.Component {
   render() {
-    return ();
+    return (
+      <div data-testid="page-profile-edit">
+      </div>
+    );
   }
 }
