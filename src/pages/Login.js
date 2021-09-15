@@ -40,29 +40,6 @@ export default class Login extends React.Component {
   showLogin = () => {
     const { name } = this.state;
     return (
-      // <div data-testid="page-login" className="page-login">
-      //   <img src={ logo } alt="logo" className="logo" />
-      //   <div className="login">
-      //     <input
-      //       className="login-input"
-      //       data-testid="login-name-input"
-      //       type="text"
-      //       name="name"
-      //       value={ name }
-      //       onChange={ this.handleChange }
-      //       placeholder="Nome"
-      //     />
-      //     <button
-      //       className="login-submit"
-      //       data-testid="login-submit-button"
-      //       type="submit"
-      //       onClick={ this.handleClick }
-      //       disabled={ this.disable() }
-      //     >
-      //       Entrar
-      //     </button>
-      //   </div>
-      // </div>
       <div data-testid="page-login" className="container">
         <img src={ logo } alt="logo" className="logo" />
         <div className="container_item">

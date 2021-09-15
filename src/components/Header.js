@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../img/logo.svg';
+import avatar from '../img/avatar.svg';
 
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
@@ -30,8 +32,11 @@ export default class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <div className="header-user">
-          <div className="user-name">
-            <img src="../src/img/logo.svg" alt="" />
+          <div className="icons">
+            <img src={ logo } alt="logo" className="icon" />
+          </div>
+          <div className="icons">
+            <img src={ avatar } alt="avatar" className="icon" />
             { loading ? <Loading />
               : <h2 data-testid="header-user-name">{ user }</h2> }
           </div>
