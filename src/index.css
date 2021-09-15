@@ -25,9 +25,8 @@ html {
 body {
   display: flex;
   height: 100vh;
-  background-image: url('./img/background.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: rgb(255,213,236);
+  background: radial-gradient(circle, rgba(255,213,236,1) 0%, rgba(163,255,255,1) 100%);
   font-family: 'Open Sans', sans-serif;
   flex-direction: column;
 }
