@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import logo from '../img/logo.svg';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -39,24 +40,54 @@ export default class Login extends React.Component {
   showLogin = () => {
     const { name } = this.state;
     return (
-      <div data-testid="page-login">
-        <h1>Login</h1>
-        <input
-          data-testid="login-name-input"
-          type="text"
-          name="name"
-          value={ name }
-          onChange={ this.handleChange }
-          placeholder="Nome"
-        />
-        <button
-          data-testid="login-submit-button"
-          type="submit"
-          onClick={ this.handleClick }
-          disabled={ this.disable() }
-        >
-          Entrar
-        </button>
+      // <div data-testid="page-login" className="page-login">
+      //   <img src={ logo } alt="logo" className="logo" />
+      //   <div className="login">
+      //     <input
+      //       className="login-input"
+      //       data-testid="login-name-input"
+      //       type="text"
+      //       name="name"
+      //       value={ name }
+      //       onChange={ this.handleChange }
+      //       placeholder="Nome"
+      //     />
+      //     <button
+      //       className="login-submit"
+      //       data-testid="login-submit-button"
+      //       type="submit"
+      //       onClick={ this.handleClick }
+      //       disabled={ this.disable() }
+      //     >
+      //       Entrar
+      //     </button>
+      //   </div>
+      // </div>
+      <div data-testid="page-login" className="container">
+        <img src={ logo } alt="logo" className="logo" />
+        <div className="container_item">
+          <form className="form">
+            <input
+              className="form field"
+              data-testid="login-name-input"
+              type="text"
+              name="name"
+              value={ name }
+              onChange={ this.handleChange }
+              placeholder="Nome"
+            />
+
+            <button
+              className="btn btn-primary btn-inside uppercase"
+              data-testid="login-submit-button"
+              type="submit"
+              onClick={ this.handleClick }
+              disabled={ this.disable() }
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
